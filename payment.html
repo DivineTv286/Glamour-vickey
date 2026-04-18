@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway | Glamour</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --glam-gold: #dbb445;
+            --glam-dark: #000000;
+            --glam-card: #0a0a0a;
+            --glam-glass: rgba(255, 255, 255, 0.05);
+            --text-muted: #888888;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--glam-dark);
+            color: #ffffff;
+            margin: 0;
+            padding-bottom: 40px;
+        }
+
+        .wrapper { padding: 20px; max-width: 500px; margin: 0 auto; }
+
+        .header-box { text-align: center; margin: 20px 0 30px; }
+        .step-tag { color: var(--glam-gold); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+        .main-title { font-size: 20px; font-weight: 800; margin-top: 5px; }
+
+        /* --- PAYMENT INFO CARD --- */
+        .payment-card {
+            background: var(--glam-card);
+            border: 1px solid var(--glam-glass);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--glam-glass);
+        }
+        .info-row:last-child { border: none; }
+
+        .label { font-size: 11px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; }
+        .value { font-size: 16px; font-weight: 800; color: #fff; }
+        .copy-btn { color: var(--glam-gold); cursor: pointer; padding: 5px; transition: 0.2s; }
+        .copy-btn:active { transform: scale(0.8); }
+
+        /* --- ACTION BUTTONS --- */
+        .action-title { font-size: 12px; font-weight: 800; text-align: center; margin-bottom: 15px; color: var(--text-muted); }
+        
+        .btn-platform {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            padding: 16px;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 14px;
+            margin-bottom: 12px;
+            border: none;
+            text-transform: uppercase;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp { background: #25D366; color: #fff; }
+        .btn-telegram { background: #0088cc; color: #fff; }
+        
+        .alert-box {
+            background: rgba(219, 180, 69, 0.05);
+            border: 1px dashed var(--glam-gold);
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #ddd;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header-box">
+        <span class="step-tag">Step 2: Finalize Payment</span>
+        <h1 class="main-title">Bank Transfer</h1>
+    </div>
+
+    <div class="payment-card">
+        <div class="info-row">
+            <div>
+                <span class="label">Amount to Pay</span>
+                <div class="value" id="pay-amount">₦14,000</div>
+            </div>
+            <i class="fa fa-copy copy-btn" onclick="copyText('14000', 'Amount')"></i>
+        </div>
+
+        <div class="info-row">
+            <div>
+                <span class="label">Bank Name</span>
+                <div class="value">KUDA MFB</div>
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div>
+                <span class="label">Account Number</span>
+                <div class="value" id="acct-num">2083082584</div>
+            </div>
+            <i class="fa fa-copy copy-btn" onclick="copyText('9133562923', 'Account Number')"></i>
+        </div>
+
+        <div class="info-row">
+            <div>
+                <span class="label">Account Name</span>
+                <div class="value">VICTORY N. NWOKEHIE</div>
+            </div>
+        </div>
+    </div>
+
+    <p class="action-title">SEND PROOF OF PAYMENT VIA:</p>
+
+
+
+    <a href="https://t.me/Nwokehie?text=I%20have%20made%20payment%20for%20Glam-Premium" class="btn-platform btn-telegram">
+    <i class="fa fa-paper-plane"></i> Confirm on Telegram
+</a>
+
+
+    <div class="alert-box">
+        <i class="fa fa-info-circle"></i> After payment, send a screenshot of your receipt to any of the platforms above for instant activation.
+    </div>
+</div>
+
+<script>
+    function copyText(text, label) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert(label + " copied to clipboard!");
+        });
+    }
+</script>
+
+</body>
+</html>
