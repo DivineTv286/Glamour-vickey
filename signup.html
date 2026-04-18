@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour | Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-area">
+            <span class="flower-icon-text">❀</span> 
+            <span class="glamour-text">Glamour</span>
+        </div>
+        
+        <div class="nav-actions">
+            <div class="hamburger" id="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobile-menu">
+            <div class="menu-links">
+                <a href="index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Features</a>
+                <a href="#">Faqs</a>
+            </div>
+             <div class="menu-auth">
+                <a href="login.html" class="login-link">LOGIN</a>
+                <a href="signup.html" class="signup-btn-large">SIGNUP</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        
+        <section class="signup-intro">
+            <h1 class="main-title">Sign Up</h1>
+            <p class="subtitle">Create your professional Glamour account.</p>
+        </section>
+
+        <form class="signup-form">
+            
+            <div class="input-wrapper">
+                <label for="full-name" class="input-label">FULL NAME</label>
+                <div class="input-group">
+                    <span class="input-icon"><i class="fa-regular fa-user"></i></span>
+                    <input type="text" id="full-name" name="full-name" placeholder="John Doe" required>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="username" class="input-label">USERNAME</label>
+                <div class="input-group">
+                    <span class="input-icon"><i class="fa-solid fa-user-plus"></i></span>
+                    <input type="text" id="username" name="username" placeholder="@glamour_pro" required>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="email" class="input-label">EMAIL ADDRESS</label>
+                <div class="input-group">
+                    <span class="input-icon"><i class="fa-regular fa-envelope"></i></span>
+                    <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <label for="password" class="input-label">PASSWORD</label>
+                <div class="input-group">
+                    <span class="input-icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" id="password" name="password" placeholder="........." required>
+                </div>
+            </div>
+
+            <button type="submit" class="gold-submit-btn">
+                CONTINUE TO PACKAGES
+                <span class="btn-arrow-icon"><i class="fa-solid fa-arrow-right-long"></i></span>
+            </button>
+        
+        </form>
+
+        <div class="form-footer">
+            <p class="terms-text">By creating your account, you agree to our <a href="terms.html" class="legal-link">Terms of Service</a> and <a href="privacy.html" class="legal-link">Privacy Policy</a>.</p>
+            <p class="login-prompt">Already have an account? <a href="login.html" class="login-action-link">Login</a></p>
+        </div>
+
+    </main>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    padding-top: 100px; 
+    line-height: 1.5;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 5%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.flower-icon-text {
+    font-size: 2.2rem;
+    line-height: 1;
+}
+
+.glamour-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.hamburger {
+    cursor: pointer;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.bar {
+    width: 28px;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: #dbb445; }
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: #dbb445; }
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    display: none;
+    flex-direction: column;
+    padding: 100px 8% 40px;
+    z-index: 2500;
+}
+
+.mobile-nav.open { display: flex; }
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.menu-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.menu-auth {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-bottom: 50px;
+}
+
+.login-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.signup-btn-large {
+    background-color: #dbb445; 
+    color: #000;
+    text-decoration: none;
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    border-radius: 18px;
+    font-weight: 900;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+
+.mobile-nav.open { display: flex; }
+.menu-links { display: flex; flex-direction: column; gap: 25px; }
+.menu-links a { color: #fff; text-decoration: none; font-size: 1.8rem; font-weight: 700; }
+.content-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px 10%;
+}
+
+.signup-intro {
+    margin-bottom: 40px;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 0px;
+}
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-label {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #aaa;
+    letter-spacing: 1px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.input-group:focus-within {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.input-icon {
+    padding: 18px 0 18px 20px;
+    color: #666;
+    font-size: 1.2rem;
+}
+
+.input-group input {
+    flex-grow: 1;
+    padding: 18px 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.input-group input::placeholder {
+    color: #666;
+}
+.gold-submit-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dbb445; 
+    color: #000;
+    border: none;
+    padding: 18px 25px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.gold-submit-btn:hover {
+    background-color: #c9a33b;
+}
+
+.btn-arrow-icon {
+    font-size: 1.4rem;
+}
+.form-footer {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 60px;
+}
+
+.terms-text {
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+
+.legal-link {
+    color: #dbb445;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-prompt {
+    font-size: 0.95rem;
+}
+
+.login-action-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+    </style>
+
+    <script>
+const hamburger = document.getElementById('menu-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+// Menu Logic
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+});
+
+// FORM LOGIC: Save username and redirect
+const signupForm = document.querySelector('.signup-form');
+
+signupForm.addEventListener('submit', (e) => {
+    e.preventDefault(); // Stop page from refreshing
+
+    // Get the values from the inputs
+    const usernameInput = document.getElementById('username').value;
+    const fullNameInput = document.getElementById('full-name').value;
+
+    // Save to LocalStorage (Browser Memory)
+    localStorage.setItem('glamour_username', usernameInput);
+    localStorage.setItem('glamour_fullname', fullNameInput);
+
+    // Redirect to Dashboard
+    window.location.href = "dashboard.html"; 
+});
+</script>
+</body>
+</html>
