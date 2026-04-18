@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour | Privacy Policy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CORE STYLES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #000; color: #fff; padding-top: 100px; line-height: 1.6; overflow-x: hidden; }
+
+        /* --- FIXED NAVBAR --- */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .nav-left { display: flex; align-items: center; gap: 15px; }
+        .back-link {
+            color: #fff; text-decoration: none; font-size: 1rem; width: 35px; height: 35px;
+            display: flex; align-items: center; justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; transition: 0.3s;
+        }
+        .back-link:hover { background-color: #dbb445; color: #000; }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .flower-icon { font-size: 1.8rem; }
+        .glamour-text { font-size: 1.2rem; font-weight: 700; }
+
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
+        .signup-header-btn {
+            background: #fff; color: #000; text-decoration: none;
+            padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.75rem;
+        }
+
+        /* Hamburger */
+        .hamburger { cursor: pointer; z-index: 4000; display: flex; flex-direction: column; gap: 6px; }
+        .bar { width: 26px; height: 2px; background-color: #fff; transition: 0.3s ease; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: #dbb445; }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: #dbb445; }
+
+        /* Mobile Menu */
+        .mobile-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: #000; display: none; flex-direction: column;
+            padding: 120px 10% 40px; z-index: 3000;
+        }
+        .mobile-nav.open { display: flex; }
+        .menu-links { display: flex; flex-direction: column; gap: 25px; }
+        .menu-links a { color: #fff; text-decoration: none; font-size: 1.8rem; font-weight: 700; }
+        .menu-auth { margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 20px; padding-bottom: 40px; }
+        .login-link-ov { color: #fff; text-decoration: none; font-weight: 800; font-size: 1.1rem; }
+        .signup-btn-large {
+            background-color: #dbb445; color: #000; text-decoration: none;
+            width: 100%; max-width: 400px; padding: 18px; text-align: center;
+            border-radius: 15px; font-weight: 900; text-transform: uppercase;
+        }
+
+        /* --- CONTENT AREA --- */
+        .content-container { max-width: 800px; margin: 0 auto; padding: 40px 8%; }
+        .main-title { font-size: 3rem; font-weight: 800; margin-bottom: 5px; }
+        .accent-gold { color: #dbb445; font-style: italic; }
+        .last-updated { color: #555; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 50px; text-transform: uppercase; }
+
+        section { margin-bottom: 40px; }
+        h2 { font-size: 1.4rem; margin-bottom: 15px; color: #fff; font-weight: 700; border-left: 3px solid #dbb445; padding-left: 15px; }
+        p { color: #ccc; margin-bottom: 15px; font-size: 1rem; }
+        ul { list-style: none; margin-bottom: 20px; }
+        ul li { color: #ccc; margin-bottom: 15px; padding-left: 20px; position: relative; }
+        ul li::before { content: "•"; color: #dbb445; position: absolute; left: 0; font-weight: bold; }
+        strong { color: #fff; }
+
+        .sub-text { font-size: 0.9rem; color: #888; font-style: italic; margin-top: -10px; margin-bottom: 20px; display: block; }
+
+        /* --- FOOTER --- */
+        footer { background-color: #000; padding: 80px 10% 40px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .footer-logo { font-size: 2.5rem; margin-bottom: 20px; }
+        .footer-tagline { color: #888; max-width: 400px; margin: 0 auto 30px; font-size: 0.95rem; }
+        .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; }
+        .social-icons a { 
+            width: 40px; height: 40px; border-radius: 50%; border: 1px solid #333;
+            display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: 0.3s;
+        }
+        .social-icons a:hover { border-color: #dbb445; color: #dbb445; }
+
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px; text-align: center; margin-bottom: 60px;
+        }
+        .footer-col h4 { font-size: 0.8rem; color: #fff; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; }
+        .footer-col a { display: block; color: #888; text-decoration: none; margin-bottom: 12px; font-size: 0.9rem; transition: 0.3s; }
+        .footer-col a:hover { color: #fff; }
+
+        .contact-section h4 { color: #dbb445; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px; }
+        .contact-email { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+        
+        .copyright { margin-top: 60px; color: #444; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; }
+        .legal-links { margin-top: 15px; }
+        .legal-links a { color: #444; text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="back-link"><i class="fa-solid fa-chevron-left"></i></a>
+            <div class="logo-area">
+                <span class="flower-icon">❀</span> 
+                <span class="glamour-text">Glamour</span>
+            </div>
+        </div>
+        <div class="nav-actions">
+            <a href="signup.html" class="signup-header-btn">SIGNUP</a>
+            <div class="hamburger" id="menu-toggle">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobile-menu">
+            <div class="menu-links">
+                <a href="index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Features</a>
+                <a href="#">Packages</a>
+                <a href="#">Faqs</a>
+            </div>
+             <div class="menu-auth">
+                <a href="login.html" class="login-link-ov">LOGIN</a>
+                <a href="signup.html" class="signup-btn-large">SIGNUP</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <h1 class="main-title">Privacy <span class="accent-gold">Policy.</span></h1>
+        <p class="last-updated">Last Updated: March 28th, 2026</p>
+
+        <section>
+            <h2>1. Information We Collect</h2>
+            <p>We believe in strict data minimization. We only collect the necessary information required to orchestrate the Glamour ecosystem effectively:</p>
+            <ul>
+                <li><strong>Personal Identifiable Information (PII):</strong> Full Name, Email Address, Username, and heavily encrypted secure Passwords provided directly during the Premium registration phase.</li>
+                <li><strong>Platform Usage Data:</strong> Analytical data relative to your interactions with European counterparts, digital portfolio uploads, platform navigation paths, and time-on-site metrics.</li>
+                <li><strong>Device & Log Information:</strong> IP addresses, browser types, operating systems, and timestamp data essential for monitoring security integrity and preventing fraudulent login attempts.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Utilization of Data</h2>
+            <p>Your protected data is deployed strictly to optimize and maintain your Glamour profile. It is utilized to:</p>
+            <ul>
+                <li>Power the algorithmic pairing system, matching you dynamically with relevant European users or global gig opportunities.</li>
+                <li>Process secure financial transactions seamlessly via our certified partner, <strong>Korapay</strong>.</li>
+                <li>Monitor analytical progress within Glamour Skill Up and dynamically unlock physical or digital fitness/platform rewards.</li>
+                <li>Deliver critical administrative communications, policy updates, and security alerts directly to your inbox.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Information Sharing and Third-Party Subprocessors</h2>
+            <p>Glamour does <strong>not</strong> sell your personal data to data brokers. We share limited architectural data strictly with essential infrastructure partners:</p>
+            <ul>
+                <li><strong>Google Firebase:</strong> Utilized for robust, enterprise-grade authentication, database management, and encrypted user data storage.</li>
+                <li><strong>Korapay:</strong> Utilized exclusively for PCI-compliant financial processing and secure checkout flows.</li>
+            </ul>
+            <span class="sub-text">*These authorized subprocessors adhere to rigorous international privacy standards.</span>
+        </section>
+
+        <section>
+            <h2>4. Cookies and Tracking Mechanisms</h2>
+            <p>Our platform utilizes essential cookies—small data files stored locally on your device—to maintain your authenticated session states and remember premium user preferences. By utilizing Glamour, you consent to the deployment of these fundamental session cookies.</p>
+        </section>
+
+        <section>
+            <h2>5. Security & Data Retention</h2>
+            <p>We enforce industry-standard cryptographic security protocols (including SSL/TLS transit encrypting) to guard your personal information against unauthorized access. We retain your personal data strictly for as long as your premium account is active.</p>
+            <p><strong>Important:</strong> While we deploy high-tier security architectures, inherent internet transmissions cannot be guaranteed 100% secure. You provide your data at your own calculated risk.</p>
+        </section>
+
+        <section>
+            <h2>6. Your User Rights</h2>
+            <p>As an empowered user of the Glamour ecosystem, you hold the definitive right to view, modify, extract, or request the total deletion of your Personal Identifiable Information directly from your authenticated dashboard. You may also opt-out of promotional communications at any time.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">❀</div>
+        <p class="footer-tagline">Redefining digital advancement and personal growth through innovation and community.</p>
+        
+        <div class="social-icons">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Ecosystem</h4>
+                <a href="#">Glamour Skill Up</a>
+                <a href="#">Active Rewards</a>
+                <a href="#">Glamour Gigs</a>
+                <a href="#">Gamified Challenges</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">FAQs</a>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h4>CONTACT US:</h4>
+            <a href="mailto:support@glamourofficial.net.ng" class="contact-email">support@glamourofficial.net.ng</a>
+        </div>
+
+        <div class="copyright">
+            <p>© 2026 Glamour. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        });
+    </script>
+</body>
+</html>
