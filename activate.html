@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate Account | Glamour</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        :root {
+            --glam-gold: #dbb445;
+            --glam-dark: #000000;
+            --glam-card: #0a0a0a;
+            --glam-glass: rgba(255, 255, 255, 0.05);
+            --text-muted: #888888;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--glam-dark);
+            color: #ffffff;
+            margin: 0;
+            padding-bottom: 40px;
+        }
+
+        .wrapper { padding: 20px; max-width: 500px; margin: 0 auto; }
+
+        /* --- LOGO AREA --- */
+        .brand-header { text-align: center; margin: 30px 0; }
+        .brand-header img { width: 120px; filter: drop-shadow(0 0 10px rgba(219, 180, 69, 0.3)); }
+
+        /* --- PLAN CARD --- */
+        .plan-card {
+            background: var(--glam-card);
+            border: 2px solid var(--glam-gold);
+            border-radius: 25px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .current-badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--glam-gold); color: #000; font-size: 10px;
+            font-weight: 800; padding: 4px 15px; border-radius: 20px; text-transform: uppercase;
+        }
+        .plan-name { font-size: 22px; font-weight: 800; color: var(--glam-gold); margin-bottom: 5px; }
+        .plan-price { font-size: 36px; font-weight: 900; margin: 15px 0; }
+        
+        .benefit-list { text-align: left; margin: 25px 0; list-style: none; padding: 0; }
+        .benefit-list li { 
+            font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px;
+            color: #ddd;
+        }
+        .benefit-list li i { color: var(--glam-gold); font-size: 16px; }
+
+        .btn-pay {
+            background: var(--glam-gold); color: #000; border: none;
+            width: 100%; padding: 16px; border-radius: 15px;
+            font-weight: 800; font-size: 16px; text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        /* --- FAQ SECTION --- */
+        .faq-section { margin-top: 40px; }
+        .faq-title { font-size: 16px; font-weight: 800; margin-bottom: 20px; color: var(--glam-gold); text-align: center; }
+        .faq-item {
+            background: var(--glam-card); border: 1px solid var(--glam-glass);
+            border-radius: 15px; padding: 15px; margin-bottom: 10px;
+        }
+        .faq-q { font-size: 14px; font-weight: 700; margin-bottom: 8px; display: block; color: #fff; }
+        .faq-a { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="brand-header">
+        <h2 style="font-weight: 900; letter-spacing: 2px;">GLAMOUR</h2>
+    </div>
+
+    <div class="plan-card">
+        <div class="current-badge">Recommended</div>
+        <span class="plan-name">GLAM-PREMIUM PACKAGE</span>
+        <div class="plan-price">₦14,000</div>
+        
+        <ul class="benefit-list">
+            <li><i class="fa fa-check-circle"></i> Instant ₦10,000 Welcome Bonus</li>
+            <li><i class="fa fa-check-circle"></i> Daily Tap & Earn Task Access</li>
+            <li><i class="fa fa-check-circle"></i> Global Digital Content Asset Tools</li>
+            <li><i class="fa fa-check-circle"></i> Priority Withdrawal Approval</li>
+            <li><i class="fa fa-check-circle"></i> 24/7 Premium Customer Support</li>
+        </ul>
+
+        <a href="payment.html"><button class="btn-pay">Continue to Payment</button></a>
+    </div>
+
+    <div class="faq-section">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        
+        <div class="faq-item">
+            <span class="faq-q">How do I receive my Welcome Bonus?</span>
+            <p class="faq-a">Immediately after your account activation is confirmed, your ₦10,000 cashback is credited to your All Time Earnings automatically.</p>
+        </div>
+
+        <div class="faq-item">
+            <span class="faq-q">Can I withdraw without activation?</span>
+            <p class="faq-a">No. Account activation is required to unlock the full withdrawal features and verify your digital presence on the ecosystem.</p>
+        </div>
+
+        <div class="faq-item">
+            <span class="faq-q">Is the activation fee a one-time payment?</span>
+            <p class="faq-a">Yes. Your GLAM-PREMIUM activation is a one-time fee that gives you lifetime access to our digital routines and asset-building tools.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
