@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            padding-top: 100px;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #000;
+            z-index: 2000;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .back-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #dbb445;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .flower-icon { font-size: 2rem; }
+        .glamour-text { font-size: 1.3rem; font-weight: 700; }
+
+        /* --- HAMBURGER & MENU --- */
+        .hamburger {
+            cursor: pointer;
+            z-index: 4000;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .bar {
+            width: 28px;
+            height: 2px;
+            background-color: #fff;
+            transition: 0.3s ease;
+        }
+
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: #dbb445; }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: #dbb445; }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            display: none;
+            flex-direction: column;
+            padding: 120px 10% 40px;
+            z-index: 3000;
+        }
+
+        .mobile-nav.open { display: flex; }
+
+        .menu-links {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .menu-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .menu-auth {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            padding-bottom: 50px;
+        }
+
+        .login-link-ov {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .signup-btn-large {
+            background-color: #dbb445;
+            color: #000;
+            text-decoration: none;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            border-radius: 18px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        /* --- LOGIN FORM --- */
+        .content-container {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 20px 10%;
+        }
+
+        .login-intro { margin-bottom: 40px; }
+        .main-title { font-size: 2.8rem; font-weight: 700; }
+        .subtitle { color: #555; font-size: 1rem; margin-top: 5px; }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .input-wrapper { display: flex; flex-direction: column; gap: 12px; }
+        
+        .label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .input-label {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #888;
+            letter-spacing: 1px;
+        }
+
+        .forgot-link {
+            color: #dbb445;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .input-icon {
+            padding-left: 20px;
+            color: #444;
+            font-size: 1.2rem;
+        }
+
+        .input-group input {
+            flex-grow: 1;
+            padding: 18px 20px;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        /* --- ACCESS DASHBOARD BUTTON --- */
+        .gold-submit-btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            background-color: #dbb445;
+            color: #000;
+            border: none;
+            padding: 18px;
+            border-radius: 18px;
+            font-size: 1.1rem;
+            font-weight: 900;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #888;
+        }
+
+        .signup-action-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="back-link">
+                <i class="fa-solid fa-chevron-left"></i>
+            </a>
+            <div class="logo-area">
+                <span class="flower-icon">❀</span> 
+                <span class="glamour-text">Glamour</span>
+            </div>
+        </div>
+        
+        <div class="nav-actions">
+            <div class="hamburger" id="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar :"></div>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobile-menu">
+            <div class="menu-links">
+                <a href="index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Features</a>
+                <a href="#">Packages</a>
+                <a href="#">Faqs</a>
+            </div>
+             <div class="menu-auth">
+                <a href="login.html" class="login-link-ov">LOGIN</a>
+                <a href="signup.html" class="signup-btn-large">SIGNUP</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <section class="login-intro">
+            <h1 class="main-title">Login</h1>
+            <p class="subtitle">Secure access to your Glamour ecosystem.</p>
+        </section>
+
+        <form class="login-form">
+            <div class="input-wrapper">
+                <label class="input-label">EMAIL ADDRESS</label>
+                <div class="input-group">
+                    <span class="input-icon"><i class="fa-regular fa-envelope"></i></span>
+                    <input type="email" placeholder="name@example.com" required>
+                </div>
+            </div>
+
+            <div class="input-wrapper">
+                <div class="label-row">
+                    <label class="input-label">PASSWORD</label>
+                    <a href="forgotten-password.html" class="forgot-link">Forgot?</a>
+                </div>
+                <div class="input-group">
+                    <span class="input-icon"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" placeholder="........." required>
+                </div>
+            </div>
+
+            <button type="submit" class="gold-submit-btn">
+                ACCESS DASHBOARD
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </button>
+        </form>
+
+        <div class="form-footer">
+            <p>Don't have an account? <a href="signup.html" class="signup-action-link">Sign Up</a></p>
+        </div>
+    </main>
+
+    <script>
+        const hamburger = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        });
+
+        const navLinks = document.querySelectorAll('.mobile-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            });
+        });
+    </script>
+</body>
+</html>
