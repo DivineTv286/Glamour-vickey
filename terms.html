@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour | Terms of Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: #000; color: #fff; padding-top: 100px; line-height: 1.6; overflow-x: hidden; }
+
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .nav-left { display: flex; align-items: center; gap: 15px; }
+        .back-link {
+            color: #fff; text-decoration: none; font-size: 1rem; width: 35px; height: 35px;
+            display: flex; align-items: center; justify-content: center;
+            background-color: rgba(255, 255, 255, 0.1); border-radius: 50%; transition: 0.3s;
+        }
+        .back-link:hover { background-color: #dbb445; color: #000; }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .flower-icon { font-size: 1.8rem; }
+        .glamour-text { font-size: 1.2rem; font-weight: 700; }
+
+        .nav-actions { display: flex; align-items: center; gap: 15px; }
+        .signup-header-btn {
+            background: #fff; color: #000; text-decoration: none;
+            padding: 8px 20px; border-radius: 50px; font-weight: 800; font-size: 0.75rem;
+        }
+        .hamburger { cursor: pointer; z-index: 4000; display: flex; flex-direction: column; gap: 6px; }
+        .bar { width: 26px; height: 2px; background-color: #fff; transition: 0.3s ease; }
+        .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); background-color: #dbb445; }
+        .hamburger.active .bar:nth-child(2) { opacity: 0; }
+        .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); background-color: #dbb445; }
+        .mobile-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: #000; display: none; flex-direction: column;
+            padding: 120px 10% 40px; z-index: 3000;
+        }
+        .mobile-nav.open { display: flex; }
+        .menu-links { display: flex; flex-direction: column; gap: 25px; }
+        .menu-links a { color: #fff; text-decoration: none; font-size: 1.8rem; font-weight: 700; }
+        .menu-auth { margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 20px; padding-bottom: 40px; }
+        .login-link-ov { color: #fff; text-decoration: none; font-weight: 800; font-size: 1.1rem; }
+        .signup-btn-large {
+            background-color: #dbb445; color: #000; text-decoration: none;
+            width: 100%; max-width: 400px; padding: 18px; text-align: center;
+            border-radius: 15px; font-weight: 900; text-transform: uppercase;
+        }
+        .content-container { max-width: 800px; margin: 0 auto; padding: 40px 8%; }
+        .main-title { font-size: 3rem; font-weight: 800; margin-bottom: 5px; }
+        .accent-gold { color: #dbb445; font-style: italic; }
+        .effective-date { color: #555; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 50px; text-transform: uppercase; }
+
+        section { margin-bottom: 40px; }
+        h2 { font-size: 1.4rem; margin-bottom: 15px; color: #fff; font-weight: 700; }
+        p { color: #ccc; margin-bottom: 15px; font-size: 1rem; }
+        ul { list-style: none; margin-bottom: 20px; }
+        ul li { color: #ccc; margin-bottom: 12px; padding-left: 20px; position: relative; }
+        ul li::before { content: "•"; color: #dbb445; position: absolute; left: 0; font-weight: bold; }
+        strong { color: #fff; }
+
+        footer { background-color: #000; padding: 80px 10% 40px; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .footer-logo { font-size: 2.5rem; margin-bottom: 20px; }
+        .footer-tagline { color: #888; max-width: 400px; margin: 0 auto 30px; font-size: 0.95rem; }
+        .social-icons { display: flex; justify-content: center; gap: 15px; margin-bottom: 50px; }
+        .social-icons a { 
+            width: 40px; height: 40px; border-radius: 50%; border: 1px solid #333;
+            display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: 0.3s;
+        }
+        .social-icons a:hover { border-color: #dbb445; color: #dbb445; }
+
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 40px; text-align: center; margin-bottom: 60px;
+        }
+        .footer-col h4 { font-size: 0.8rem; color: #fff; letter-spacing: 2px; margin-bottom: 25px; text-transform: uppercase; }
+        .footer-col a { display: block; color: #888; text-decoration: none; margin-bottom: 12px; font-size: 0.9rem; transition: 0.3s; }
+        .footer-col a:hover { color: #fff; }
+
+        .contact-section h4 { color: #dbb445; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 10px; }
+        .contact-email { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+        
+        .copyright { margin-top: 60px; color: #444; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px; }
+        .legal-links { margin-top: 15px; }
+        .legal-links a { color: #444; text-decoration: none; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="back-link"><i class="fa-solid fa-chevron-left"></i></a>
+            <div class="logo-area">
+                <span class="flower-icon">❀</span> 
+                <span class="glamour-text">Glamour</span>
+            </div>
+        </div>
+        <div class="nav-actions">
+            <a href="signup.html" class="signup-header-btn">SIGNUP</a>
+            <div class="hamburger" id="menu-toggle">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+        </div>
+
+        <nav class="mobile-nav" id="mobile-menu">
+            <div class="menu-links">
+                <a href="index.html">Home</a>
+                <a href="#">About</a>
+                <a href="#">Features</a>
+                <a href="#">Packages</a>
+                <a href="#">Faqs</a>
+            </div>
+             <div class="menu-auth">
+                <a href="login.html" class="login-link-ov">LOGIN</a>
+                <a href="signup.html" class="signup-btn-large">SIGNUP</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-container">
+        <h1 class="main-title">Terms of <span class="accent-gold">Service.</span></h1>
+        <p class="effective-date">Effective Date: March 28th, 2026</p>
+
+        <section>
+            <h2>1. Introduction</h2>
+            <p>Welcome to Glamour. By accessing or using our platform at glamourofficial.net.ng, you agree to comply with and be bound by these comprehensive Terms of Service. Our platform orchestrates connections between African creators and European counterparts to facilitate digital lifestyle portfolios, remote task execution, and premium Skill Up learning via digital channels. If you do not agree with any part of these terms, you must abstain from using the platform.</p>
+        </section>
+
+        <section>
+            <h2>2. Eligibility & Account Registration</h2>
+            <p>To utilize the majority of features provided by Glamour, registration for a Premium account is mandatory. You must be at least 18 years of age to participate. You are strictly responsible for maintaining the confidentiality of your login credentials and for all activities that occur under your account.</p>
+        </section>
+
+        <section>
+            <h2>3. Platform Fees, Payments & Activation</h2>
+            <p>Glamour utilizes Korapay as its exclusive, secure payment gateway. By initiating a payment for Glamour Premium (a one-time fee of ₦14,000), you agree to adhere to Korapay's processing terms and conditions. Account activation is immediate upon successful digital verification of your payment.</p>
+            <p><strong>Refund Policy:</strong> Due to the immediate delivery of digital e-learning materials, global portfolio access, and active community entry, the one-time registration fee is strictly non-refundable once the premium ecosystem is accessed.</p>
+        </section>
+
+        <section>
+            <h2>4. Ecosystem Guidelines</h2>
+            <ul>
+                <li><strong>Glamour Skill Up:</strong> Non-transferable, lifetime license for curated digital courses.</li>
+                <li><strong>Active Rewards:</strong> Creators must maintain authentic portfolios to unlock sequential benchmarks.</li>
+                <li><strong>Glamour Gigs:</strong> Remote job pairings are independent; you act as an independent contractor.</li>
+                <li><strong>Global Conduct:</strong> Zero tolerance for hate speech, discrimination, or harassment.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Content Ownership</h2>
+            <p>You retain full ownership of all digital media you create. By utilizing the platform, you grant Glamour a worldwide, royalty-free license to host and display this content to European counterparts strictly for the purpose of unlocking rewards and pairing.</p>
+        </section>
+
+        <section>
+            <h2>6. Termination</h2>
+            <p>Glamour reserves the absolute right to suspend or terminate your account without prior notice if you violate these Terms, engage in fraudulent behavior, or create algorithmic liabilities.</p>
+        </section>
+
+        <section>
+            <h2>7. Limitation of Liability</h2>
+            <p>The Glamour ecosystem is provided on an "as is" basis. We do not guarantee uninterrupted access or specific benchmark thresholds. Glamour shall not be held liable for any indirect damages arising from your usage of the platform.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">❀</div>
+        <p class="footer-tagline">Redefining digital advancement and personal growth through innovation and community.</p>
+        
+        <div class="social-icons">
+            <a href="https://t.me/Bosscoachpretty1"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://t.me/Bosscoachpretty1"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://t.me/Bosscoachpretty1"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Ecosystem</h4>
+                <a href="#">Glamour Skill Up</a>
+                <a href="#">Active Rewards</a>
+                <a href="#">Glamour Gigs</a>
+                <a href="#">Gamified Challenges</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Features</a>
+                <a href="#">Pricing</a>
+                <a href="#">FAQs</a>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h4>CONTACT US:</h4>
+            <a href="terms.html" class="contact-email">support@glamourofficial.net.ng</a>
+        </div>
+
+        <div class="copyright">
+            <p>© 2026 Glamour. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+        });
+    </script>
+</body>
+</html>
