@@ -1,1 +1,485 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Glamour | Where Creativity Meets Luxury</title>
+    <meta name="description" content="Join Glamour to turn your everyday lifestyle into global content and digital assets. The ultimate luxury ecosystem for creators in Africa.">
+    <meta name="theme-color" content="#dbb445">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --gold: #dbb445;
+            --gold-glow: rgba(219, 180, 69, 0.5);
+            --dark-bg: #000000;
+            --section-bg-2: #080808;
+            --section-bg-3: #111111;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-gray: #888;
+            --font-main: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            z-index: 1030;
+            padding: 1.5rem 0;
+            transition: all 0.4s ease;
+        }
+        .navbar-scrolled {
+            padding: 0.8rem 0;
+            background: rgba(0, 0, 0, 0.9) !important; 
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .logo-area { font-weight: 900; font-size: 1.5rem; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .logo-area span { color: var(--gold); font-size: 2rem; }
+        .nav-link { color: #fff !important; font-weight: 600; font-size: 0.9rem; margin: 0 15px; transition: 0.3s; }
+        .nav-link:hover { color: var(--gold) !important; }
+
+    /* Update your button styles to include text-decoration: none */
+
+.btn-custom {
+    text-decoration: none !important; /* This removes the underline */
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: 800;
+    transition: 0.3s;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: #000;
+    border: none;
+    text-decoration: none; /* Extra safety */
+}
+
+.btn-outline {
+    border: 1px solid var(--glass-border);
+    color: #fff;
+    background: var(--glass);
+    text-decoration: none; /* Extra safety */
+}
+
+        /* --- HERO --- */
+        #hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at top right, #1a1508 0%, #000 60%);
+            padding-top: 100px;
+        }
+        .hero-title { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+        .hero-title span { color: var(--gold); }
+        .hero-subtitle { color: var(--text-gray); font-size: 1.1rem; max-width: 500px; margin-bottom: 40px; }
+
+        .hero-img-box {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        /* --- SECTIONS --- */
+        .section-padding { padding: 100px 0; }
+        .glow-text { text-shadow: 0 0 15px var(--gold-glow); }
+        .section-title { font-weight: 900; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 40px; }
+
+        /* --- FEATURE CARDS --- */
+        .feature-box {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 40px 30px;
+            border-radius: 25px;
+            height: 100%;
+            transition: 0.4s;
+        }
+        .feature-box:hover { transform: translateY(-10px); border-color: var(--gold); background: rgba(219, 180, 69, 0.05); }
+        .feature-icon { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+
+        /* --- PRICING --- */
+        .package-card {
+            background: #fff;
+            color: #000;
+            padding: 50px 30px;
+            border-radius: 30px;
+            text-align: center;
+            position: relative;
+            transition: 0.3s;
+        }
+        .package-card.premium { background: var(--dark-bg); color: #fff; border: 1px solid var(--gold); }
+        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; }
+        .price span { font-size: 1.5rem; vertical-align: top; }
+        .benefit-list { list-style: none; padding: 0; text-align: left; margin: 30px 0; }
+        .benefit-list li { margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; gap: 10px; }
+        .benefit-list li i { color: var(--gold); }
+
+        /* --- POPUP & WIDGET --- */
+        #popup-container {
+            position: fixed; bottom: 20px; left: 20px; background: white; padding: 15px 20px;
+            border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); font-family: sans-serif;
+            border-left: 5px solid var(--gold); transition: 0.5s; z-index: 1000; color: #000;
+        }
+        .popup-hidden { opacity: 0; transform: translateX(-100%); }
+        .popup-visible { opacity: 1; transform: translateX(0); }
+
+        .chat-widget { position: fixed; bottom: 30px; right: 20px; z-index: 999; }
+        .chat-toggle {
+            width: 60px; height: 60px; border-radius: 50%; background: var(--gold);
+            color: #000; display: flex; align-items: center; justify-content: center;
+            font-size: 24px; cursor: pointer; box-shadow: 0 10px 20px var(--gold-glow);
+        }
+        .chat-box {
+            width: 280px; background: #111; border: 1px solid var(--glass-border);
+            border-radius: 20px; position: absolute; bottom: 80px; right: 0;
+            display: none; overflow: hidden;
+        }
+
+        @media (max-width: 991px) {
+            .hero-title { text-align: center; }
+            .hero-subtitle { text-align: center; margin: 0 auto 30px; }
+            .hero-btns { justify-content: center; display: flex; gap: 10px; }
+        }
+        /* --- FAQ CUSTOM STYLING --- */
+.accordion-item {
+    background: var(--glass) !important;
+    border: 1px solid var(--glass-border) !important;
+    border-radius: 15px !important;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.accordion-button {
+    background: transparent !important;
+    color: #fff !important;
+    font-weight: 600;
+    padding: 20px;
+    box-shadow: none !important;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--gold) !important;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.accordion-button::after {
+    filter: brightness(0) invert(1); /* Makes the arrow white */
+}
+
+.accordion-body {
+    color: var(--text-gray);
+    line-height: 1.6;
+    background: rgba(0,0,0,0.2);
+}
+
+.faq-subtitle {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="logo-area" href="index.html"><span>❀</span> GLAMOUR</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border:none; color:white;">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero-section">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-section">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features-section">Ecosystem</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing-section">Pricing</a></li>
+                </ul>
+                <a href="signup.html" class="btn-custom btn-gold">Join Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="hero-title">Elevate Your <span>Lifestyle</span> to Assets</h1>
+                    <p class="hero-subtitle">Turn your creativity, habits, and daily routines into global digital content with Europe’s leading creative partner.</p>
+                    <div class="hero-btns">
+                        <a href="signup.html" class="btn-custom btn-gold">Get Started</a>
+                        <a href="#about-section" class="btn-custom btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left">
+                    <div class="hero-img-box">
+                        <img src="hero-banner.jpg" class="img-fluid" alt="Glamour Luxury">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-section" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="zoom-in">
+                    <img src="about-img.jpg" class="img-fluid rounded-4" alt="About Glamour">
+                </div>
+                <div class="col-lg-7 ps-lg-5" data-aos="fade-up">
+                    <h2 class="section-title glow-text">What is Glamour?</h2>
+                    <p class="text-secondary lead">Glamour is a European institution that partners with Africans to showcase lifestyle, creativity, and habits globally.</p>
+                    <p class="text-secondary">We bridge the gap between talented creators and international markets. Through our ecosystem, your daily influence becomes a professional gig, allowing you to earn while you build a healthy, creative lifestyle.</p>
+                    <div class="row mt-4">
+                        <div class="col-6">
+                            <h3 class="fw-bold mb-0">100%</h3>
+                            <small class="text-uppercase text-secondary">Remote Gigs</small>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="fw-bold mb-0" style="color: var(--gold);">Global</h3>
+                            <small class="text-uppercase text-secondary">Exposure</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features-section" class="section-padding" style="background: var(--section-bg-2);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">The Ecosystem</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-shirt feature-icon"></i>
+                        <h4>GLAM LIFESTYLE</h4>
+                        <p class="text-secondary">Monetize your daily routines. Turn your aesthetic and creativity into digital assets seen by a global audience.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-briefcase feature-icon"></i>
+                        <h4>GLAM WORKS</h4>
+                        <p class="text-secondary">Direct connection to remote opportunities. We partner with European firms seeking creative African talent.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-dumbbell feature-icon"></i>
+                        <h4>GLAM FITNESS</h4>
+                        <p class="text-secondary">A healthy body is a creative mind. Track your activity and unlock exclusive active rewards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing-section" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title glow-text">Choose Your Path</h2>
+            </div>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-5" data-aos="flip-left">
+                    <div class="package-card premium">
+                        <span class="badge bg-warning text-dark mb-3">RECOMMENDED</span>
+                        <h3 class="fw-bold">PREMIUM ACCESS</h3>
+                        <div class="price"><span>₦</span>14,000</div>
+                        <ul class="benefit-list">
+                            <li><i class="fa-solid fa-check"></i> Full access to SkillUp Programs</li>
+                            <li><i class="fa-solid fa-check"></i> Eligible for Active Rewards</li>
+                            <li><i class="fa-solid fa-check"></i> Global Remote Gigs Access</li>
+                            <li><i class="fa-solid fa-check"></i> 24/7 Priority Support</li>
+                        </ul>
+                        <a href="signup.html" class="btn-custom btn-gold w-100">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="faq-section" class="section-padding" style="background: var(--section-bg-3);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5" data-aos="fade-up">
+                        <span class="faq-subtitle">Have Questions?</span>
+                        <h2 class="section-title glow-text">Common Inquiries</h2>
+                    </div>
+
+                    <div class="accordion" id="glamourFAQ" data-aos="fade-up">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    How do I earn with Glamour?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#glamourFAQ">
+                                <div class="accordion-body">
+                                    You earn by turning your daily habits—fitness, fashion, and lifestyle—into digital assets. We provide the platform and European partnerships that pay for high-quality African creative content and remote gigs.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Is the ₦14,000 payment a monthly subscription?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#glamourFAQ">
+                                <div class="accordion-body">
+                                    No, the Premium Access is an annual membership. This covers your full setup, access to all SkillUp programs, eligibility for Active Rewards, and priority connection to global remote gigs for a full year.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Do I need professional camera gear?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#glamourFAQ">
+                                <div class="accordion-body">
+                                    Not at all. Most of our creators use smartphones. Our SkillUp programs include training on how to capture high-end, luxury-style content using just your mobile device.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    How do I withdraw my earnings?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#glamourFAQ">
+                                <div class="accordion-body">
+                                    Earnings are credited to your Glamour wallet. You can withdraw directly to your Nigerian bank account or Mobile Money (for Ghana) instantly once your gig or reward is verified.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="section-padding" style="background: #000; border-top: 1px solid var(--glass-border);">
+        <div class="container text-center">
+            <a class="logo-area justify-content-center mb-4" href="#"><span>❀</span> GLAMOUR</a>
+            <p class="text-secondary mx-auto" style="max-width: 600px;">Redefining digital advancement via technology and creativity. Partnering with the next generation of African creators.</p>
+            <div class="mt-4">
+                <p class="text-secondary small">&copy; 2026 Glamour Institutional. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="popup-container" class="popup-hidden">
+        <div class="popup-content">
+            <div class="popup-header">
+                <span id="user-flag">🇳🇬</span> 
+                <strong id="user-name">Rapheal</strong> from 
+                <span id="user-location">Port Harcourt</span>
+            </div>
+            <div class="popup-body">
+                <span id="user-action">just activated</span><br>
+                <strong id="activity-detail">GLAMOUR PREMIUM — ₦14,000</strong>
+            </div>
+            <div class="popup-footer">
+                • <span id="time-ago">Just now</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-widget">
+        <div class="chat-toggle" onclick="toggleChat()">
+            <i class="fa-solid fa-crown"></i>
+        </div>
+        <div class="chat-box" id="chatBox">
+            <div style="background: var(--gold); color:#000; padding:15px; display:flex; justify-content:space-between; align-items:center;">
+                <span class="fw-bold">Glamour Support</span>
+                <i class="fa-solid fa-xmark" onclick="toggleChat()" style="cursor:pointer;"></i>
+            </div>
+            <div class="p-3">
+                <p class="small text-secondary">Hello! Ready to join the elite circle of creators?</p>
+                <a href="https://t.me/Bosscoachpretty1" target="_blank" class="btn btn-warning w-100 fw-bold py-2">Message Admin</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 50) {
+                $('.navbar').addClass('navbar-scrolled');
+            } else {
+                $('.navbar').removeClass('navbar-scrolled');
+            }
+        });
+
+        function toggleChat() {
+            $('#chatBox').fadeToggle(300);
+        }
+
+        const users = [
+            { name: "Emmanuel", city: "Port Harcourt", flag: "🇳🇬" },
+            { name: "Blessing", city: "Lagos", flag: "🇳🇬" },
+            { name: "Chisom", city: "Abuja", flag: "🇳🇬" },
+            { name: "Kofi", city: "Accra", flag: "🇬🇭" }
+        ];
+
+        function showPopup() {
+            const user = users[Math.floor(Math.random() * users.length)];
+            $('#user-flag').text(user.flag);
+            $('#user-name').text(user.name);
+            $('#user-location').text(user.city);
+            $('#time-ago').text(Math.floor(Math.random() * 10) + 1 + " mins ago");
+
+            $('#popup-container').removeClass('popup-hidden').addClass('popup-visible');
+            setTimeout(() => {
+                $('#popup-container').removeClass('popup-visible').addClass('popup-hidden');
+            }, 5000);
+        }
+
+        setInterval(showPopup, 12000);
+        setTimeout(showPopup, 3000);
+    </script>
+</body>
+              </html>
